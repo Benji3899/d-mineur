@@ -1,0 +1,36 @@
+#ground,
+#ground ul,
+#ground li{
+    display: flex;
+}
+
+#ground ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.ground_grid{
+    flex-direction: column;
+}
+
+.ground_cell{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    margin: 1px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ground_cell .icon{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.ground_cell.mask{
+    color: white;
+    background-color: black;
+}
