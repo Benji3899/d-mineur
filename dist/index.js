@@ -1,5 +1,8 @@
+import { Game } from "./game.js";
 import { Grid } from "./grid.js";
 window.addEventListener("load", (_) => {
     let grid = new Grid();
-    grid.draw();
+    let game = new Game();
+    grid.draw(game);
+    // grid.draw();
 });
