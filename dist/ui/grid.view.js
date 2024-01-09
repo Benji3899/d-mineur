@@ -32,7 +32,12 @@ export class GridView {
         }
         // Insertion du tableau dans la page
         htmlMain.appendChild(htmlGrid);
-        game.start();
+    }
+    show(cell) {
+        this.cells[cell.y][cell.x].classList.remove("mask"); //  cell stock la cellule toucher à la position (x, y)  supprime la class mask
+    }
+    help(cell, hint) {
+        this.cells[cell.y][cell.x].innerHTML = hint;
     }
 }
 GridView.BOMB = '<span class="icon material-symbols-outlined">bomb</span>';

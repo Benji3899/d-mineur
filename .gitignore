@@ -1,0 +1,4 @@
+dist/*
+dist/*.*.js
+!dist/*.css
+!dist/*.html
