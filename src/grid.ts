@@ -4,12 +4,12 @@ import { Game } from "./game.js";
 export class Grid {
   private static readonly BOMB = '<span class="icon material-symbols-outlined">bomb</span>';
 
-  WIDTH = 20;
-  HEIGHT = 20;
-  DENSITY = 0.1; // 10% de bombes
-  BOMBS: boolean[][] = [];
-  HITS: boolean[][] = [];
-  CELLS: HTMLElement[][] = [];
+  width = 20;
+  height = 20;
+  density = 0.1; // 10% de bombes
+  bombs: boolean[][] = [];
+  hits: boolean[][] = [];
+  cells: HTMLElement[][] = [];
 
   // Dessin de la grille
   draw(game: Game) {
@@ -18,10 +18,10 @@ export class Grid {
     const htmlGrid = document.createElement("ul")!; // créer l'élément 'ul' et l'ajoute dans la const 'htmlGrid'
     htmlGrid.className = "ground_grid"; // attribut une class à htmlGrid
 
-    for (let y = 0; y < this.HEIGHT; y++) {
-      this.BOMBS.push([]);
-      this.HITS.push([]);
-      this.CELLS.push([]);
+    for (let y = 0; y < this.height; y++) {
+      this.bombs.push([]);
+      this.hits.push([]);
+      this.cells.push([]);
 
       // Dessin d'une ligne
       const htmlRow = document.createElement("li");
@@ -30,10 +30,10 @@ export class Grid {
       htmlRow.appendChild(htmlCells); // appendChild ajoute l'élément htmlCells en tant que dernier enfant de htmlRow
       htmlGrid.appendChild(htmlRow); // idem
 
-      for (let x = 0; x < this.WIDTH; x++) {
-        const bomb = Math.random() < this.DENSITY;
-        this.BOMBS[y].push(bomb);
-        this.HITS[y].push(false);
+      for (let x = 0; x < this.width; x++) {
+        const bomb = Math.random() < this.density;
+        this.bombs[y].push(bomb);
+        this.hits[y].push(false);
 
         // Dessin d'une cellule
         const htmlCell = document.createElement("li"); // créer element li dans const htmlCell
@@ -41,7 +41,7 @@ export class Grid {
         htmlCell.innerHTML = bomb ? Grid.BOMB : "";
         htmlCell.onclick = () => game.play(this, x, y);
         htmlCells.appendChild(htmlCell);
-        this.CELLS[y].push(htmlCell);
+        this.cells[y].push(htmlCell);
       }
     }
 
